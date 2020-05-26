@@ -10,8 +10,6 @@
 ![GitHub issues](https://img.shields.io/github/issues/bornfight/b-scroll-lock?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/bornfight/b-scroll-lock?style=flat-square)
 
-##### ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
-
 ## 📦 Getting Started
 
 - install `b-scroll-lock` trough __npm__ or pull ti from git
