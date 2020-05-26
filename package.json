@@ -1,11 +1,11 @@
 {
-  "name": "c-lib-boilerplate",
+  "name": "b-scroll-lock",
   "version": "1.0.0",
-  "description": "Bornfight frontend boilerplate for lib development",
+  "description": "Bornfight frontend micro lib for scroll locking an unlocking",
   "author": "Bornfight FE team",
   "email": "frontend@bornfight.com",
   "private": true,
-  "main": "src/js/LibName.js",
+  "main": "src/js/ScrollLock.js",
   "engines": {
     "node": ">=12.16.1",
     "npm": ">=6.14.2"

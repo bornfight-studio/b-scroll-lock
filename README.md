@@ -2,70 +2,54 @@
 <img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight" alt="Bornfight">
 </a>
 
-# b-lib-boilerplate [[all b- libs](https://github.com/bornfight/b-lib-archive/)]
-> Bornfight frontend project based on gulp, es6 and scss
+# b-scroll-lock [[all b- libs](https://github.com/bornfight/b-lib-archive/)]
+> Bornfight frontend micro lib for locking and unlocking the scroll 
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-creative?style=flat-square)
-![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-creative?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/bornfight/b-creative?style=flat-square)
-![GitHub](https://img.shields.io/github/license/bornfight/b-creative?style=flat-square)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-scroll-lock?style=flat-square)
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-scroll-lock?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/bornfight/b-scroll-lock?style=flat-square)
+![GitHub](https://img.shields.io/github/license/bornfight/b-scroll-lock?style=flat-square)
 
 ##### ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
-Change:
-- package.json > "name": "c-lib-boilerplate"
-- package.json > "description": "...."
-- package.json > "main": "src/js/LibName.js"
-- LibName.js > replace with your lib name in places where it is used
 
 ## 📦 Getting Started
 
-- install `b-lib` trough __npm__ or pull ti from git
+- install `b-scroll-lock` trough __npm__ or pull ti from git
 
 ```
-npm i @bornfight/b-lib
+npm i @bornfight/b-scroll-lock
 ```
 
-- include b-lib to your __JS__ and __SCSS__ after running __npm install__
+- include b-lib to your __JS__ after running __npm install__
 
 ## 🔨️ Usage 
 ###### JS
 ``` JS
-import LibName from "@bornfight/b-lib";
+import ScrollLock from "@bornfight/b-scroll-lock";
 ```
 
-###### SCSS
-``` SCSS
-@import "~b-lib/src/scss/b-lib.scss";
-```
-
-##### HTML markup
-
-```HTML
-<p class="b-lib-class">
-    Lib Element
-</p>
-```
-
-##### Basic usage tips
-- element needs to have ...
-- ...
-
-##### Advanced usage
-- ...
+##### Usage tips
+- class contains two methods, one for lock scroll and one for unlock 
+- every method has one property that could be passed
      
 ## 💎 Customization
 
-## ✅ Properties
+```JS
+const scrollLock = new ScrollLock();
 
-Option | Type | Default | Example | Description
------- | ---- | ------- | ------- | -----------
-parentClass | string | element parent | 'js-parent' | Element will be wrapped and moved to that parent and not to initial parent element 
+// value 100 represent on witch scroll value will "is-fixed-scrolled" class be added to body
+// offset value (100) is optional and default is 100
+scrollLock.lockScroll(100);
+
+// value 100 represent on witch scroll value will document be after scroll is unlocked
+// offset value (100) is optiona and default is scroll value before locking the scroll
+scrollLock.unlockScroll(100);
+```
 
 ## 🚀 Useful to know
 
-1. ...
-2. ...
-3. ...
+1. if used with page transition - don't forget to unlock scroll
+2. will not work for scroll inside modal/popup
    
 ### 📦 Contribute
 
@@ -77,6 +61,6 @@ parentClass | string | element parent | 'js-parent' | Element will be wrapped an
 npm run dev - dev environent with browsersync
 ```
 
-## License
+### License
 
 MIT © [Bornfight](https://www.bornfight.com)
