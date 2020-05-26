@@ -1,5 +1,5 @@
-/*
- * b-scroll-lock v 1.0.0
+/**
+ * b-scroll-lock v 1.0.3
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-scroll-lock
  *
