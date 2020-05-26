@@ -21,7 +21,7 @@ const paths = {
         dest: "dist/",
     },
     scripts: {
-        main: "src/js/LibName.js",
+        main: "src/js/ScrollLock.js",
         src: "src/js/**/*.js",
         dest: "dist/",
     },
@@ -73,29 +73,6 @@ export function buildStyles() {
 }
 
 /**
- * Watch JS task
- */
-export function watchScripts() {
-    return browserify(paths.scripts.main)
-        .transform("babelify", {
-            global: true,
-            presets: ["@babel/preset-env"],
-            plugins: [
-                "@babel/plugin-syntax-dynamic-import",
-                "@babel/proposal-class-properties",
-                "@babel/proposal-object-rest-spread",
-                "add-module-exports"],
-        })
-        .bundle()
-        .pipe(source("bundle.js"))
-        .pipe(buffer())
-        .pipe(sourcemaps.init({"loadMaps": true}))
-        .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest(paths.scripts.dest))
-        .pipe(server.stream());
-}
-
-/**
  * Reload task
  */
 export function reload(done) {
@@ -123,14 +100,13 @@ export function serve(done) {
  */
 export function watchFiles() {
     gulp.watch(paths.styles.src, gulp.series(watchStyles));
-    gulp.watch(paths.scripts.src, gulp.series(watchScripts, reload));
     gulp.watch(paths.markup.src, reload);
 }
 
 /**
  * Watch task
  */
-const watch = gulp.series(clean, gulp.parallel(watchStyles, watchScripts), serve, watchFiles);
+const watch = gulp.series(clean, watchStyles, serve, watchFiles);
 
 /**
  * Build task

@@ -15,14 +15,14 @@ export default class ScrollLock {
      *
      * @param {number} offset
      */
-    lockScroll(offset) {
-        let scrollClassOffset = offset || 100;
+    lockScroll(offset = 100) {
         this.offsetTop = document.documentElement.scrollTop;
         this.body.style.overflow = 'hidden';
         this.body.style.top = `-${this.offsetTop}px`;
         this.body.style.position = 'fixed';
 
-        if (this.offsetTop > scrollClassOffset) {
+        console.log(offset);
+        if (this.offsetTop >= offset) {
             this.body.classList.add('is-fixed-scrolled');
         }
     }
@@ -31,11 +31,11 @@ export default class ScrollLock {
      *
      * @param {number} offsetTop
      */
-    unlockScroll(offsetTop) {
+    unlockScroll(offsetTop= this.offsetTop) {
         this.body.style.top = '0px';
         this.body.style.position = '';
         this.body.style.overflow = '';
-        document.documentElement.scrollTop = offsetTop || this.offsetTop;
+        document.documentElement.scrollTop = offsetTop;
 
         this.body.classList.remove('is-fixed-scrolled');
     }

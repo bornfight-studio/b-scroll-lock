@@ -5,10 +5,34 @@
     <title>Lib name</title>
     <link rel="stylesheet" href="dist/style.css">
 
-    <script type="module">
-        import LibName from "./src/js/LibName.js";
+    <style>
+        body {
+            height: 300vh;
+        }
 
-        new LibName("passed string");
+        button {
+            display: block;
+            margin-top: 300px;
+        }
+    </style>
+
+    <script type="module">
+        import ScrollLock from "./src/js/ScrollLock.js";
+
+        const scrollLock = new ScrollLock();
+
+        const lock = document.querySelector('.js-lock');
+        const unlock = document.querySelector('.js-unlock');
+
+        lock.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            scrollLock.lockScroll();
+        });
+
+        unlock.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            scrollLock.unlockScroll();
+        });
     </script>
 </head>
 <body>
@@ -16,5 +40,13 @@
     <img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight"
          alt="Bornfight">
 </a>
+
+<button class="js-lock">
+    lock
+</button>
+
+<button class="js-unlock">
+    unlock
+</button>
 </body>
 </html>
