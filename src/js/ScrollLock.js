@@ -1,5 +1,5 @@
 /**
- * b-scroll-lock v 1.0.5
+ * b-scroll-lock v 1.0.6
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-scroll-lock
  *
@@ -21,7 +21,6 @@ export default class ScrollLock {
         this.body.style.top = `-${this.offsetTop}px`;
         this.body.style.position = 'fixed';
 
-        console.log(offset);
         if (this.offsetTop >= offset) {
             this.body.classList.add('is-fixed-scrolled');
         }
