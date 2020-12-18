@@ -1,5 +1,5 @@
 /**
- * b-scroll-lock v 1.0.6
+ * b-scroll-lock v 1.0.7
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-scroll-lock
  *
@@ -8,7 +8,7 @@
 
 export default class ScrollLock {
     constructor() {
-        this.body = document.querySelector('body');
+        this.body = document.body;
     }
 
     /**
@@ -16,10 +16,11 @@ export default class ScrollLock {
      * @param {number} offset
      */
     lockScroll(offset = 100) {
-        this.offsetTop = document.documentElement.scrollTop;
+        this.offsetTop = window.pageYOffset;
         this.body.style.overflow = 'hidden';
         this.body.style.top = `-${this.offsetTop}px`;
         this.body.style.position = 'fixed';
+        this.body.dataset.scrollAmount = `${this.offsetTop}`;
 
         if (this.offsetTop >= offset) {
             this.body.classList.add('is-fixed-scrolled');
@@ -30,11 +31,12 @@ export default class ScrollLock {
      *
      * @param {number} offsetTop
      */
-    unlockScroll(offsetTop= this.offsetTop) {
+    unlockScroll(offsetTop = this.offsetTop) {
         this.body.style.top = '0px';
         this.body.style.position = '';
         this.body.style.overflow = '';
-        document.documentElement.scrollTop = offsetTop;
+        window.scroll(0, offsetTop || 0);
+        this.body.dataset.scrollAmount = "";
 
         this.body.classList.remove('is-fixed-scrolled');
     }
