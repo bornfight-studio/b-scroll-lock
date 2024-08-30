@@ -1,7 +1,7 @@
 {
   "name": "@bornfight/b-scroll-lock",
-  "version": "1.0.8",
-  "description": "Bornfight frontend micro lib for scroll locking an unlocking",
+  "version": "1.0.9",
+  "description": "Bornfight Studio frontend micro lib for scroll locking an unlocking",
   "author": {
     "name": "BORNFIGHT STUDIO®",
     "email": "hello@bornfight.studio",
